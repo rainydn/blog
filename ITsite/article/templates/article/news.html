@@ -1,0 +1,58 @@
+{% extends 'article/base.html' %}
+
+{% block content %}
+
+
+<div class="col-md-12">
+	{% for p in object_list %}
+	<div class="blog-entry ftco-animate d-md-flex">
+<!--		<a href="single.html" class="img img-2" src="{{p.photo.url}}"></a>-->
+
+		{% if p.image %}
+	<p><img class="img img-2" src = "{{ p.image }}"></p>
+{% endif %}
+
+		<div class="text text-2 p-4">
+			<h3 class="mb-2"><a href="single.html">{{p.title}}</a></h3>
+			<div class="meta-wrap">
+				<p class="meta">
+					<span>Дата: {{p.date_text}}</span>
+					<span><a href="single.html">Категория: Отсустсвует</a></span>
+				</p>
+			</div>
+			<p class="mb-4">
+				{% autoescape on %}
+				{{p.content_text|linebreaks|truncatewords:20}}
+				{% endautoescape %}</p>
+			<p><a href="{{ p.get_absolute_url }}" class="btn-custom">Читать пост <span
+					class="ion-ios-arrow-forward"></span></a></p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+<!--<ul class="list-articles">-->
+<!--	{% for p in posts %}-->
+<!--			<li><div class="article-panel">-->
+<!--	<p class="first">Категория: {{p.cat}}</p>-->
+<!--	<p class="last">Дата: {{p.time_update|date:"d-m-Y H:i:s"}}</p>-->
+<!--</div>-->
+
+<!--{% if p.photo %}-->
+<!--	<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>-->
+<!--{% endif %}-->
+
+<!--				<h2>{{p.title}}</h2>-->
+<!--	{% autoescape on %}-->
+<!--	{{p.content|linebreaks|truncatewords:50}}-->
+<!--	{% endautoescape %}-->
+<!--			<div class="clear"></div>-->
+<!--			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>-->
+<!--			</li>-->
+<!--	{% endfor %}-->
+<!--</ul>-->
+{% endblock %}
+
+
+

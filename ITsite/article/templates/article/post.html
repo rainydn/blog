@@ -1,0 +1,16 @@
+{% extends 'article/base.html' %}
+
+{% block content %}
+
+<div class="col-lg-8 ftco-animate">
+<!--<!-отображение собержимого поста&ndash;&gt;-->
+    <p>
+        {% if post.photo %}
+        <img src="{{ post.photo.url }}" alt="" class="img-fluid">
+        {% endif %}
+    </p>
+    <p>{{ post.content }}</p>
+
+</div>
+
+{% endblock %}
